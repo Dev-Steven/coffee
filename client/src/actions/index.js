@@ -1,3 +1,4 @@
+import coffees from '../apis/coffees';
 import { SIGN_IN, SIGN_OUT, COFFEE_SELECTED } from './types';
 
 export const signIn = userId => {
@@ -20,6 +21,6 @@ export const selectCoffee = coffee => {
 	};
 };
 
-export const createCoffee = formValues => {
-	return {};
+export const createCoffee = formValues => async dispatch => {
+	coffees.post('/coffees', formValues);
 };
