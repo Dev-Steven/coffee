@@ -23,8 +23,10 @@ export const signOut = () => {
 	};
 };
 
-export const createCoffee = formValues => async dispatch => {
-	const response = await coffees.post('/coffees', formValues);
+export const createCoffee = formValues => async (dispatch, getState) => {
+	const { userId } = getState().auth;
+
+	const response = await coffees.post('/coffees', { ...formValues, userId });
 
 	dispatch({ type: CREATE_COFFEE, payload: response.data });
 	history.push('/coffees/show');

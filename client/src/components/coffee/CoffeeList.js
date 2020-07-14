@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getCoffees } from '../../actions';
 
 import { Card, Col, Row, Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, EditOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 class CoffeeList extends Component {
@@ -32,6 +32,13 @@ class CoffeeList extends Component {
 								title={coffee.name}
 								description={`$${coffee.price} - ${coffee.description}`}
 							/>
+							{this.props.currentUser === coffee.userId ? (
+								<Link to='/coffees/edit'>
+									<Button icon={<EditOutlined />}>
+										Edit
+									</Button>
+								</Link>
+							) : null}
 						</Card>
 					</Col>
 
@@ -66,6 +73,7 @@ class CoffeeList extends Component {
 const mapStateToProps = state => {
 	return {
 		isSignedIn: state.auth.isSignedIn,
+		currentUser: state.auth.userId,
 		coffee: Object.values(state.coffee),
 	};
 };

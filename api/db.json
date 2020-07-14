@@ -1,53 +1,20 @@
 {
   "coffees": [
     {
-      "name": "Home Brew",
-      "price": "4",
-      "description": "Brewskie",
-      "id": 1
+      "name": "Hot Tea",
+      "picture": "https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/324/324771/close-up-of-a-cup-of-tea.jpg?w=1155&h=1541",
+      "price": "1.50",
+      "description": "chill",
+      "userId": "103858817149183083121",
+      "id": 10
     },
     {
-      "name": "Home Brew",
-      "price": "4",
-      "description": "Brewskie",
-      "id": 2
-    },
-    {
-      "name": "Matcha Latte",
-      "price": "2",
-      "description": "littyy",
-      "id": 3
-    },
-    {
-      "name": "Green Tea Latte",
-      "price": "5",
-      "description": "mmmm",
-      "id": 4
-    },
-    {
-      "name": "testing latte",
-      "price": "2",
-      "description": "test",
-      "id": 5
-    },
-    {
-      "name": "Pour Over",
-      "price": "4.50",
-      "description": "Yeee",
-      "id": 6
-    },
-    {
-      "name": "fdsva",
-      "price": "6",
-      "description": "yupp",
-      "id": 7
-    },
-    {
-      "picture": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
-      "name": "black coffee",
-      "price": "2",
-      "description": "strong stuff",
-      "id": 8
+      "name": "Cold Brew",
+      "picture": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F1605w-getty-cold-brew-coffee.jpg%3Fitok%3DeqMPnemu",
+      "price": "3.75",
+      "description": "chilly",
+      "userId": "103858817149183083121",
+      "id": 11
     }
   ]
 }
