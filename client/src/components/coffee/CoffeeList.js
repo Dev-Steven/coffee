@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectCoffee } from '../../actions';
+import { getCoffees } from '../../actions';
 
 import { Card, Col, Row, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 class CoffeeList extends Component {
+	componentDidMount() {
+		this.props.getCoffees();
+	}
+
 	displayCoffees() {
-		return this.props.coffees.map(coffee => {
+		return this.props.coffee.map(coffee => {
 			return (
-				<div key={coffee.name}>
+				<div key={coffee.id}>
 					<Col span={8}>
 						<Card
 							hoverable
@@ -19,14 +23,14 @@ class CoffeeList extends Component {
 							cover={
 								<img
 									style={{ width: 240, height: 200 }}
-									alt={coffee.name}
-									src='https://media3.s-nbcnews.com/i/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p_67dfb6820f7d3898b5486975903c2e51.jpg'
+									alt={`Pic of ${coffee.name} not available`}
+									src={coffee.picture}
 								/>
 							}
 						>
 							<Meta
 								title={coffee.name}
-								description={`$${coffee.price}`}
+								description={`$${coffee.price} - ${coffee.description}`}
 							/>
 						</Card>
 					</Col>
@@ -62,8 +66,8 @@ class CoffeeList extends Component {
 const mapStateToProps = state => {
 	return {
 		isSignedIn: state.auth.isSignedIn,
-		coffees: state.coffees,
+		coffee: Object.values(state.coffee),
 	};
 };
 
-export default connect(mapStateToProps, { selectCoffee })(CoffeeList);
+export default connect(mapStateToProps, { getCoffees })(CoffeeList);

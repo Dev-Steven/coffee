@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Home from './Home';
@@ -8,11 +8,12 @@ import CreateCoffee from './coffee/CoffeeCreate';
 import CoffeeEdit from './coffee/CoffeeEdit';
 import CoffeeDelete from './coffee/CoffeeDelete';
 import About from './About';
+import history from '../history';
 
 const App = () => {
 	return (
 		<div>
-			<BrowserRouter>
+			<Router history={history}>
 				<div>
 					<NavBar />
 					<Route exact path='/' component={Home} />
@@ -22,7 +23,7 @@ const App = () => {
 					<Route path='/coffees/delete' component={CoffeeDelete} />
 					<Route path='/coffees/about' component={About} />
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };

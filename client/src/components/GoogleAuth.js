@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 
-import { Button } from 'antd';
+import { Button, Row, Space } from 'antd';
 import { GoogleOutlined } from '@ant-design/icons';
 
 class GoogleAuth extends Component {
@@ -12,6 +12,7 @@ class GoogleAuth extends Component {
 				.init({
 					clientId:
 						'165355918127-02lo7eis00oftbrtvmbnasoccc87gbfs.apps.googleusercontent.com',
+					fetch_basic_profile: true,
 					scope: 'email',
 				})
 				.then(() => {
@@ -29,7 +30,10 @@ class GoogleAuth extends Component {
 	// so we dont need this.auth.isSignedIn.get()
 	onAuthChange = isSignedIn => {
 		if (isSignedIn) {
-			this.props.signIn(this.auth.currentUser.get().getId());
+			var profile = this.auth.currentUser.get().getBasicProfile();
+			console.log('Id: ' + profile.getId());
+			console.log('Full Name: ' + profile.getName());
+			this.props.signIn(profile.getId(), profile.getName());
 		} else {
 			this.props.signOut();
 		}
@@ -52,13 +56,18 @@ class GoogleAuth extends Component {
 			);
 		} else if (this.props.isSignedIn) {
 			return (
-				<Button
-					type='primary'
-					shape='round'
-					onClick={this.onSignOutClick}
-				>
-					Sign Out
-				</Button>
+				<Row>
+					<Space align='center'>
+						<p>Welcome, {this.props.userName}</p>
+						<Button
+							type='primary'
+							shape='round'
+							onClick={this.onSignOutClick}
+						>
+							Sign Out
+						</Button>
+					</Space>
+				</Row>
 			);
 		} else {
 			return (
@@ -83,6 +92,7 @@ class GoogleAuth extends Component {
 const mapStateToProps = state => {
 	return {
 		isSignedIn: state.auth.isSignedIn,
+		userName: state.auth.userName,
 	};
 };
 

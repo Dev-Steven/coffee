@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { createCoffee } from '../../actions/index';
 
 // import CoffeeForm from './CoffeeForm';
 import { Form, Input, Button, Typography } from 'antd';
@@ -28,9 +31,9 @@ class CreateCoffee extends Component {
 		);
 	};
 
-	onSubmit(formVals) {
-		console.log(formVals);
-	}
+	onSubmit = formVals => {
+		this.props.createCoffee(formVals);
+	};
 
 	render() {
 		return (
@@ -40,6 +43,12 @@ class CreateCoffee extends Component {
 					component={this.renderTextInput}
 					type='text'
 					label='Name'
+				/>
+				<Field
+					name='picture'
+					component={this.renderTextInput}
+					type='text'
+					label='Picture url'
 				/>
 				<Field
 					name='price'
@@ -54,6 +63,9 @@ class CreateCoffee extends Component {
 					label='Description'
 				/>
 				<button>Submit</button>
+				<button>
+					<Link to='/coffees/show'>Cancel</Link>
+				</button>
 			</form>
 		);
 	}
@@ -75,4 +87,6 @@ const validate = formVals => {
 	return errors;
 };
 
-export default reduxForm({ form: 'coffeeCreate', validate })(CreateCoffee);
+const formWrapped = reduxForm({ form: 'coffeeCreate', validate })(CreateCoffee);
+
+export default connect(null, { createCoffee })(formWrapped);
