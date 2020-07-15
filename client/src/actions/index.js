@@ -29,7 +29,7 @@ export const createCoffee = formValues => async (dispatch, getState) => {
 	const response = await coffees.post('/coffees', { ...formValues, userId });
 
 	dispatch({ type: CREATE_COFFEE, payload: response.data });
-	history.push('/coffees/show');
+	history.push('/coffees');
 };
 
 export const getCoffees = () => async dispatch => {
@@ -45,9 +45,11 @@ export const getcoffee = id => async dispatch => {
 };
 
 export const editCoffee = (id, formValues) => async dispatch => {
-	const response = await coffees.put(`/coffees/${id}`, formValues);
+	// .put will overrides the entire original data .patch partial update
+	const response = await coffees.patch(`/coffees/${id}`, formValues);
 
 	dispatch({ type: EDIT_COFFEE, payload: response.data });
+	history.push('/coffees');
 };
 
 export const deleteCoffee = id => async dispatch => {

@@ -1,7 +1,7 @@
 {
   "coffees": [
     {
-      "name": "Hot Tea",
+      "name": "Hot Milk Tea",
       "picture": "https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/324/324771/close-up-of-a-cup-of-tea.jpg?w=1155&h=1541",
       "price": "1.50",
       "description": "chill",
@@ -9,12 +9,20 @@
       "id": 10
     },
     {
-      "name": "Cold Brew",
-      "picture": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F1605w-getty-cold-brew-coffee.jpg%3Fitok%3DeqMPnemu",
-      "price": "3.75",
-      "description": "chilly",
+      "name": "Daily Brew",
+      "picture": "https://chriscrawfordphoto.com/cw4/images/product_full/our-daily-brew-1.jpg",
+      "price": "1.25",
+      "description": "Brewed on the daily",
       "userId": "103858817149183083121",
-      "id": 11
+      "id": 12
+    },
+    {
+      "name": "Philtered Soul",
+      "picture": "https://i.pinimg.com/originals/e8/89/a5/e889a5ff8ae87b3a8735d62b40fb5113.jpg",
+      "price": "3.50",
+      "description": "Sheesh, damn good!",
+      "userId": "103858817149183083121",
+      "id": 13
     }
   ]
 }

@@ -33,7 +33,7 @@ class CoffeeList extends Component {
 								description={`$${coffee.price} - ${coffee.description}`}
 							/>
 							{this.props.currentUser === coffee.userId ? (
-								<Link to='/coffees/edit'>
+								<Link to={`/coffees/edit/${coffee.id}`}>
 									<Button icon={<EditOutlined />}>
 										Edit
 									</Button>
