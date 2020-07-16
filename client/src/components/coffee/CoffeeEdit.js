@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import CoffeeForm from './CoffeeForm';
-import { editCoffee, getcoffee } from '../../actions';
+import { editCoffee, getCoffee } from '../../actions';
 import { connect } from 'react-redux';
+import { LoadingOutlined } from '@ant-design/icons';
 
 class CoffeeEdit extends Component {
 	componentDidMount() {
 		// need this because if user jumps straight to this route the appropriate stream will appear
 		// need information for the this.props.coffee value
-		this.props.getcoffee(this.props.match.params.id);
+		this.props.getCoffee(this.props.match.params.id);
 	}
 
 	onSubmit = formVals => {
@@ -17,7 +18,11 @@ class CoffeeEdit extends Component {
 
 	render() {
 		if (!this.props.coffee) {
-			return <div>loading</div>;
+			return (
+				<div>
+					<LoadingOutlined />
+				</div>
+			);
 		}
 		return (
 			<div>
@@ -40,8 +45,8 @@ class CoffeeEdit extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	// ownProps allows us to access props within the component
+	// ownProps - allows us to access props within the component
 	return { coffee: state.coffee[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { editCoffee, getcoffee })(CoffeeEdit);
+export default connect(mapStateToProps, { editCoffee, getCoffee })(CoffeeEdit);

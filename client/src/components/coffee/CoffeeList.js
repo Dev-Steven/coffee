@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getCoffees } from '../../actions';
 
 import { Card, Col, Row, Button } from 'antd';
-import { PlusOutlined, EditOutlined } from '@ant-design/icons';
+import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 class CoffeeList extends Component {
@@ -33,19 +33,24 @@ class CoffeeList extends Component {
 								description={`$${coffee.price} - ${coffee.description}`}
 							/>
 							{this.props.currentUser === coffee.userId ? (
-								<Link to={`/coffees/edit/${coffee.id}`}>
-									<Button icon={<EditOutlined />}>
-										Edit
-									</Button>
-								</Link>
+								<div>
+									<Link to={`/coffees/edit/${coffee.id}`}>
+										<Button icon={<EditOutlined />}>
+											Edit
+										</Button>
+									</Link>
+									<Link to={`/coffees/delete/${coffee.id}`}>
+										<Button
+											danger
+											icon={<DeleteOutlined />}
+										>
+											Delete
+										</Button>
+									</Link>
+								</div>
 							) : null}
 						</Card>
 					</Col>
-
-					{/*
-					<button onClick={() => this.props.selectCoffee(coffee)}>
-						Select
-					</button> */}
 				</div>
 			);
 		});

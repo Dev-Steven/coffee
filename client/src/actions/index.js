@@ -38,7 +38,7 @@ export const getCoffees = () => async dispatch => {
 	dispatch({ type: GET_COFFEES, payload: response.data });
 };
 
-export const getcoffee = id => async dispatch => {
+export const getCoffee = id => async dispatch => {
 	const response = await coffees.get(`/coffees/${id}`);
 
 	dispatch({ type: GET_COFFEE, payload: response.data });
@@ -56,4 +56,5 @@ export const deleteCoffee = id => async dispatch => {
 	await coffees.delete(`/coffees/${id}`);
 
 	dispatch({ type: DELETE_COFFEE, payload: id });
+	history.push('/coffees');
 };
