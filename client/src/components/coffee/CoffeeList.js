@@ -39,6 +39,9 @@ class CoffeeList extends Component {
 											Edit
 										</Button>
 									</Link>
+									{/* <Button danger icon={<DeleteOutlined />}>
+										Delete
+									</Button> */}
 									<Link to={`/coffees/delete/${coffee.id}`}>
 										<Button
 											danger

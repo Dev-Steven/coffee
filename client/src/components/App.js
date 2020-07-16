@@ -8,6 +8,7 @@ import CoffeeDetails from './coffee/CoffeeDetails';
 import CreateCoffee from './coffee/CoffeeCreate';
 import CoffeeEdit from './coffee/CoffeeEdit';
 import CoffeeDelete from './coffee/CoffeeDelete';
+import TheModal from './Modal';
 import About from './About';
 import history from '../history';
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getCoffee, deleteCoffee } from '../../actions';
+import TheModal from '../Modal';
+import CoffeeList from './CoffeeList';
+import history from '../../history';
 
-import { Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
 class CoffeeDelete extends Component {
@@ -12,12 +13,16 @@ class CoffeeDelete extends Component {
 		console.log(this.props);
 	}
 
-	delete = () => {
+	deleteCoffee = () => {
 		this.props.deleteCoffee(this.props.match.params.id);
 	};
 
+	cancel = () => {
+		history.push('/coffees');
+	};
+
 	render() {
-		if (!this.props.coffee) {
+		if (!this.props.coffeeToDelete) {
 			return (
 				<div>
 					<LoadingOutlined />
@@ -26,11 +31,14 @@ class CoffeeDelete extends Component {
 		}
 		return (
 			<div>
-				Are you sure you want to delete {this.props.coffee.name}?
-				<Button onClick={this.delete}>Delete</Button>
-				<Button>
-					<Link to='/coffees'>Cancel</Link>
-				</Button>
+				<CoffeeList />
+				<TheModal
+					title='Delete Coffee?'
+					coffee={this.props.coffeeToDelete}
+					okText='Delete'
+					handleOk={this.deleteCoffee}
+					handleCancel={this.cancel}
+				/>
 			</div>
 		);
 	}
@@ -38,7 +46,7 @@ class CoffeeDelete extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		coffee: state.coffee[ownProps.match.params.id],
+		coffeeToDelete: state.coffee[ownProps.match.params.id],
 	};
 };
 
