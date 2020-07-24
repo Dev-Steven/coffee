@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import history from '../../history';
 
-import { Form, Input, Button, Typography } from 'antd';
+import { Form, Button, Typography } from 'antd';
 const { Text } = Typography;
 
 class CoffeeForm extends Component {
@@ -32,9 +32,13 @@ class CoffeeForm extends Component {
 		this.props.onSubmit(formVals);
 	};
 
+	onCancel = () => {
+		history.push('/coffees');
+	};
+
 	render() {
 		return (
-			<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+			<Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
 				<Field
 					name='name'
 					component={this.renderTextInput}
@@ -59,11 +63,9 @@ class CoffeeForm extends Component {
 					type='text'
 					label='Description'
 				/>
-				<button>Submit</button>
-				<button>
-					<Link to='/coffees'>Cancel</Link>
-				</button>
-			</form>
+				<Button>Submit</Button>
+				<Button onClick={this.onCancel}>Cancel</Button>
+			</Form>
 		);
 	}
 }

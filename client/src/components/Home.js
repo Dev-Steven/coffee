@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Carousel, Row, Col, Space } from 'antd';
+import { Carousel, Row, Col } from 'antd';
 
 const Home = () => {
 	return (
@@ -39,15 +39,11 @@ const Home = () => {
 					/>
 				</div>
 			</Carousel>
-			<Row>
-				<Col span={24} justify='center'>
-					<Space direction='horizontal' align='center'>
-						<h1>Welcome to 96th Avenue</h1>
-					</Space>
-				</Col>
+			<Row className='home-content'>
+				<h1 className='title'>Welcome to 96th Avenue</h1>
 			</Row>
-			<Row>
-				<Col span={12}>
+			<Row className='home-content' gutter={[40, 8]}>
+				<Col className='gray-back' span={12}>
 					<h2>Who are we?</h2>
 					<h4>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -69,7 +65,7 @@ const Home = () => {
 						quis eleifend quam adipiscing vitae proin.
 					</h4>
 				</Col>
-				<Col span={12}>
+				<Col className='gray-back' span={12}>
 					<h2>Why we're the best</h2>
 					<h4>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit,

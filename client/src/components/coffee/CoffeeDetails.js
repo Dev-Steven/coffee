@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Card, Col, Row } from 'antd';
-const { Meta } = Card;
-
 const CoffeeDetails = () => {
 	return (
 		<div>

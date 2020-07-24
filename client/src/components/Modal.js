@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Modal, Button } from 'antd';
-import { connect } from 'react-redux';
-import { getCoffee, deleteCoffee } from '../actions';
-import { LoadingOutlined } from '@ant-design/icons';
+import { Modal } from 'antd';
 
 const TheModal = props => {
 	return ReactDOM.createPortal(
