@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCoffees } from '../../actions';
 
-import { Card, Col, Row, Button } from 'antd';
+import { Card, Col, Row, Button, Affix } from 'antd';
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
@@ -15,33 +15,36 @@ class CoffeeList extends Component {
 	displayCoffees() {
 		return this.props.coffee.map(coffee => {
 			return (
-				<div key={coffee.id}>
-					<Col span={8}>
-						<Card
-							hoverable
-							style={{ width: 240 }}
-							cover={
-								<img
-									style={{ width: 240, height: 200 }}
-									alt={`Pic of ${coffee.name} not available`}
-									src={coffee.picture}
-								/>
-							}
-						>
-							<Meta
-								title={coffee.name}
-								description={`$${coffee.price} - ${coffee.description}`}
+				<Col key={coffee.id} span={12} style={{ textAlign: 'center' }}>
+					<Card
+						className='gray-back'
+						hoverable
+						style={{ width: 240, display: 'inline-block' }}
+						cover={
+							<img
+								style={{
+									width: 240,
+									height: 200,
+								}}
+								alt={`Pic of ${coffee.name} not available`}
+								src={coffee.picture}
 							/>
-							{this.props.currentUser === coffee.userId ? (
-								<div>
+						}
+					>
+						<Meta
+							title={coffee.name}
+							description={`$${coffee.price} - ${coffee.description}`}
+						/>
+						{this.props.currentUser === coffee.userId ? (
+							<Row style={{ marginTop: '5%' }}>
+								<Col span={12}>
 									<Link to={`/coffees/edit/${coffee.id}`}>
 										<Button icon={<EditOutlined />}>
 											Edit
 										</Button>
 									</Link>
-									{/* <Button danger icon={<DeleteOutlined />}>
-										Delete
-									</Button> */}
+								</Col>
+								<Col span={12}>
 									<Link to={`/coffees/delete/${coffee.id}`}>
 										<Button
 											danger
@@ -50,11 +53,11 @@ class CoffeeList extends Component {
 											Delete
 										</Button>
 									</Link>
-								</div>
-							) : null}
-						</Card>
-					</Col>
-				</div>
+								</Col>
+							</Row>
+						) : null}
+					</Card>
+				</Col>
 			);
 		});
 	}
@@ -62,7 +65,14 @@ class CoffeeList extends Component {
 	renderCreateButton() {
 		if (this.props.isSignedIn) {
 			return (
-				<Button shape='circle' icon={<PlusOutlined />} size='large' />
+				<Affix offsetTop={75}>
+					<Button
+						shape='circle'
+						icon={<PlusOutlined />}
+						size='large'
+						title='Add new coffee'
+					/>
+				</Affix>
 			);
 		}
 		return <div></div>;
@@ -70,9 +80,15 @@ class CoffeeList extends Component {
 
 	render() {
 		return (
-			<div className='site-card-wrapper'>
-				<Row gutter={16}>{this.displayCoffees()}</Row>
-				<Link to='/coffees/create'>{this.renderCreateButton()}</Link>
+			<div style={{ padding: '10px' }}>
+				<Link to='/coffees/create' style={{ float: 'left' }}>
+					{this.renderCreateButton()}
+				</Link>
+				<div className='home-content' style={{ textAlign: 'center' }}>
+					<div style={{ display: 'inline-block' }}>
+						<Row gutter={[8, 8]}>{this.displayCoffees()}</Row>
+					</div>
+				</div>
 			</div>
 		);
 	}

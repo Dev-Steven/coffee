@@ -25,19 +25,18 @@
 	background: #40739e;
 }
 
+.home-content {
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
 .title {
 	text-align: center;
 	margin: auto;
 }
 
-.home-content {
-	padding-right: 15%;
-	padding-left: 15%;
-}
-
 .gray-back {
-	border: 1px solid blueviolet;
-	/* margin: 5px; */
+	margin: 5px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

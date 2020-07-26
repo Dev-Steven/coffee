@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import GoogleAuth from './GoogleAuth';
 
-import { Menu } from 'antd';
+import { Menu, Affix } from 'antd';
 
 class NavBar extends Component {
 	render() {
 		return (
-			<div>
+			<Affix offsetTop={1}>
 				<Menu mode='horizontal'>
 					<Menu.Item>
 						<Link to='/'>Home</Link>
@@ -23,7 +23,7 @@ class NavBar extends Component {
 						<GoogleAuth />
 					</Menu.Item>
 				</Menu>
-			</div>
+			</Affix>
 		);
 	}
 }

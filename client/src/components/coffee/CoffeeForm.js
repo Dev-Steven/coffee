@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import history from '../../history';
 
-import { Form, Button, Typography } from 'antd';
+import { Button, Typography } from 'antd';
 const { Text } = Typography;
 
 class CoffeeForm extends Component {
@@ -29,6 +29,7 @@ class CoffeeForm extends Component {
 	};
 
 	onSubmit = formVals => {
+		console.log({ formVals });
 		this.props.onSubmit(formVals);
 	};
 
@@ -38,7 +39,7 @@ class CoffeeForm extends Component {
 
 	render() {
 		return (
-			<Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+			<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
 				<Field
 					name='name'
 					component={this.renderTextInput}
@@ -63,9 +64,9 @@ class CoffeeForm extends Component {
 					type='text'
 					label='Description'
 				/>
-				<Button>Submit</Button>
+				<Button htmlType='submit'>Submit</Button>
 				<Button onClick={this.onCancel}>Cancel</Button>
-			</Form>
+			</form>
 		);
 	}
 }
