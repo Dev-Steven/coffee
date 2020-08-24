@@ -1,3 +1,7 @@
+$opaque-background-color: rgba(167, 105, 76, 0.6);
+$solid-background-color: rgba(167, 105, 76, 0.8);
+$background-border-radius: 7px;
+
 .home {
 	height: 100%;
 	.home-image {
@@ -5,10 +9,33 @@
 		background-image: url('../../assets/coffee_beans_coffee_fried_117012_2560x1440.jpg');
 		background-size: cover;
 		text-align: center;
-		margin: auto;
+		padding-top: 10%;
 
 		h1 {
 			color: white;
+			background-color: $opaque-background-color;
+			border-radius: $background-border-radius;
+			padding: 25px;
+			width: 35%;
+			margin: auto;
+		}
+
+		.shop-btn {
+			margin-top: 10%;
+
+			h3 {
+				padding: 10px;
+				color: white;
+				background-color: $opaque-background-color;
+				border-radius: $background-border-radius;
+				width: 15%;
+				margin: auto;
+			}
+
+			h3:hover {
+				background-color: $solid-background-color;
+				transition-duration: 1s;
+			}
 		}
 	}
 }
