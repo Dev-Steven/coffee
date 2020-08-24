@@ -49,14 +49,10 @@ class GoogleAuth extends Component {
 
 	renderAuthButton() {
 		if (this.props.isSignedIn === null) {
-			return (
-				<div className='google-auth'>
-					<button className='btn btn-custom'>Loading</button>
-				</div>
-			);
+			return <button className='btn btn-custom'>Loading</button>;
 		} else if (this.props.isSignedIn) {
 			return (
-				<div className='google-auth container'>
+				<div className='container'>
 					<div className='row flex-nowrap'>
 						<div className='col center'>
 							<span>Welcome, {this.props.userName}</span>
@@ -74,21 +70,16 @@ class GoogleAuth extends Component {
 			);
 		} else {
 			return (
-				<div className='google-auth'>
-					<button
-						className='btn btn-custom'
-						onClick={this.onSignInClick}
-					>
-						<FontAwesomeIcon icon={faGoogle} className='icon' />
-						Sign In with Google
-					</button>
-				</div>
+				<button className='btn btn-custom' onClick={this.onSignInClick}>
+					<FontAwesomeIcon icon={faGoogle} className='icon' />
+					Sign In with Google
+				</button>
 			);
 		}
 	}
 
 	render() {
-		return <div>{this.renderAuthButton()}</div>;
+		return <div className='google-auth'>{this.renderAuthButton()}</div>;
 	}
 }
 
