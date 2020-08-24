@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import GoogleAuth from '../GoogleAuth';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 import './NavBar.scss';
 
 class NavBar extends Component {

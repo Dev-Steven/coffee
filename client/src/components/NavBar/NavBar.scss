@@ -1,15 +1,18 @@
+$nav-background-color: #a76a4c;
+$nav-text-color: peachpuff;
+
 .navbar-custom {
-	background-color: #a76a4c;
+	background-color: $nav-background-color;
 
 	.navbar-brand {
-		color: peachpuff;
+		color: $nav-text-color;
 	}
 	.navbar-nav {
 		.nav-item {
-			color: peachpuff;
+			color: $nav-text-color;
 			margin: auto;
 			.nav-link {
-				color: peachpuff;
+				color: $nav-text-color;
 			}
 		}
 	}

@@ -1,0 +1,29 @@
+@import '../NavBar/NavBar.scss';
+
+.google-auth {
+	.center {
+		margin: auto;
+
+		span {
+			white-space: nowrap;
+		}
+	}
+
+	.btn-custom {
+		background-color: #563227;
+		color: $nav-text-color;
+	}
+
+	.btn-custom:hover {
+		background-color: #6f4b40;
+		color: $nav-text-color;
+	}
+
+	p {
+		font-size: 15px;
+	}
+
+	.icon {
+		margin-right: 15px;
+	}
+}
