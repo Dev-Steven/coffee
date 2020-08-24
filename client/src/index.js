@@ -8,7 +8,6 @@ import App from './components/App';
 import reducers from './reducers';
 
 import 'antd/dist/antd.css';
-import './components/style.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 
-import NavBar from './NavBar';
-import Home from './Home';
+import NavBar from './NavBar/NavBar';
+import Home from './Home/Home';
 import CoffeeList from './coffee/CoffeeList';
 import CoffeeDetails from './coffee/CoffeeDetails';
 import CreateCoffee from './coffee/CoffeeCreate';
@@ -10,12 +10,14 @@ import CoffeeEdit from './coffee/CoffeeEdit';
 import CoffeeDelete from './coffee/CoffeeDelete';
 import About from './About';
 import history from '../history';
+import './style.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 	return (
-		<div>
+		<div className='app'>
 			<Router history={history}>
-				<div>
+				<div className='app'>
 					<NavBar />
 					<Route exact path='/' component={Home} />
 					<Route exact path='/coffees' component={CoffeeList} />

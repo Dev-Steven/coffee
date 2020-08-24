@@ -1,0 +1,19 @@
+.navbar-custom {
+	background-color: #a76a4c;
+
+	.navbar-brand {
+		color: peachpuff;
+	}
+	.navbar-nav {
+		.nav-item {
+			color: peachpuff;
+			margin: auto;
+			.nav-link {
+				color: peachpuff;
+			}
+		}
+	}
+	.right {
+		float: right;
+	}
+}

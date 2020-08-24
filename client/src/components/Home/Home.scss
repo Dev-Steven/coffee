@@ -1,0 +1,14 @@
+.home {
+	height: 100%;
+	.home-image {
+		height: 100%;
+		background-image: url('../../assets/coffee_beans_coffee_fried_117012_2560x1440.jpg');
+		background-size: cover;
+		text-align: center;
+		margin: auto;
+
+		h1 {
+			color: white;
+		}
+	}
+}
