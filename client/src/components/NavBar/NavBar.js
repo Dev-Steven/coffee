@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
 import './NavBar.scss';
@@ -39,6 +41,11 @@ class NavBar extends Component {
 						<li className='nav-item'>
 							<GoogleAuth />
 						</li>
+						<li className='nav-item'>
+							<Link className='nav-link' to='/cart'>
+								<FontAwesomeIcon icon={faShoppingCart} />
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</nav>
@@ -47,22 +54,3 @@ class NavBar extends Component {
 }
 
 export default NavBar;
-
-{
-	/* <Affix offsetTop={1}>
-				<Menu mode='horizontal'>
-					<Menu.Item>
-						<Link to='/'>Home</Link>
-					</Menu.Item>
-					<Menu.Item>
-						<Link to='/coffees'>Coffee</Link>
-					</Menu.Item>
-					<Menu.Item>
-						<Link to='/coffees/about'>About</Link>
-					</Menu.Item>
-					<Menu.Item style={{ float: 'right' }}>
-						<GoogleAuth />
-					</Menu.Item>
-				</Menu>
-			</Affix> */
-}

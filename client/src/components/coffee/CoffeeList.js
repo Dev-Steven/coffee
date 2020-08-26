@@ -1,63 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCoffees } from '../../actions';
+import { getCoffees, getCoffee } from '../../actions';
+import { addToCart } from '../../actions/cartActions';
 
-import { Card, Col, Row, Button, Affix } from 'antd';
-import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
-const { Meta } = Card;
+import { Button, Affix } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 class CoffeeList extends Component {
 	componentDidMount() {
 		this.props.getCoffees();
 	}
 
+	handleAddToCart = id => {
+		this.props.addToCart(id);
+	};
+
 	displayCoffees() {
 		return this.props.coffee.map(coffee => {
 			return (
-				<Col key={coffee.id} span={12} style={{ textAlign: 'center' }}>
-					<Card
-						className='gray-back'
-						hoverable
-						style={{ width: 240, display: 'inline-block' }}
-						cover={
-							<img
-								style={{
-									width: 240,
-									height: 200,
-								}}
-								alt={`Pic of ${coffee.name} not available`}
-								src={coffee.picture}
-							/>
-						}
-					>
-						<Meta
-							title={coffee.name}
-							description={`$${coffee.price} - ${coffee.description}`}
+				<div className='col' key={coffee.id}>
+					<div className='card'>
+						<img
+							src={coffee.picture}
+							className='card-img-top'
+							alt={coffee.name}
+							style={{ width: 245, height: 200 }}
 						/>
-						{this.props.currentUser === coffee.userId ? (
-							<Row style={{ marginTop: '5%' }}>
-								<Col span={12}>
-									<Link to={`/coffees/edit/${coffee.id}`}>
-										<Button icon={<EditOutlined />}>
-											Edit
-										</Button>
-									</Link>
-								</Col>
-								<Col span={12}>
-									<Link to={`/coffees/delete/${coffee.id}`}>
-										<Button
-											danger
-											icon={<DeleteOutlined />}
-										>
-											Delete
-										</Button>
-									</Link>
-								</Col>
-							</Row>
-						) : null}
-					</Card>
-				</Col>
+						<div className='card-body'>
+							<h5 className='card-title'>{coffee.name}</h5>
+							<p className='card-text'>{`$${coffee.price} - ${coffee.description}`}</p>
+							<Link
+								to={`/coffees/delete/${coffee.id}`}
+								className='btn btn-primary'
+							>
+								More Info
+							</Link>
+							<button
+								onClick={() => this.handleAddToCart(coffee.id)}
+								className='btn btn-primary'
+							>
+								Add to Cart
+							</button>
+						</div>
+					</div>
+				</div>
 			);
 		});
 	}
@@ -81,13 +68,14 @@ class CoffeeList extends Component {
 	render() {
 		return (
 			<div style={{ padding: '10px' }}>
-				<Link to='/coffees/create' style={{ float: 'left' }}>
+				{/* <Link to='/coffees/create' style={{ float: 'left' }}>
 					{this.renderCreateButton()}
-				</Link>
-				<div className='home-content' style={{ textAlign: 'center' }}>
-					<div style={{ display: 'inline-block' }}>
-						<Row gutter={[8, 8]}>{this.displayCoffees()}</Row>
-					</div>
+				</Link> */}
+				<div
+					className='home-content container'
+					style={{ textAlign: 'center' }}
+				>
+					<div className='row'>{this.displayCoffees()}</div>
 				</div>
 			</div>
 		);
@@ -102,4 +90,15 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getCoffees })(CoffeeList);
+const mapDispatchToProps = dispatch => {
+	return {
+		getCoffees: () => {
+			dispatch(getCoffees());
+		},
+		addToCart: id => {
+			dispatch(addToCart(id));
+		},
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoffeeList);

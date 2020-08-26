@@ -9,6 +9,7 @@ import CreateCoffee from './coffee/CoffeeCreate';
 import CoffeeEdit from './coffee/CoffeeEdit';
 import CoffeeDelete from './coffee/CoffeeDelete';
 import About from './About';
+import Cart from './cart/Cart';
 import history from '../history';
 import './style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,6 +30,7 @@ const App = () => {
 						component={CoffeeDelete}
 					/>
 					<Route path='/coffees/about' component={About} />
+					<Route path='/cart' component={Cart} />
 				</div>
 			</Router>
 		</div>

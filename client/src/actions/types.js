@@ -5,3 +5,4 @@ export const GET_COFFEES = 'GET_COFFEES';
 export const GET_COFFEE = 'GET_COFFEE';
 export const EDIT_COFFEE = 'EDIT_COFFEE';
 export const DELETE_COFFEE = 'DELETE_COFFEE';
+export const ADD_TO_CART = 'ADD_TO_CART';
