@@ -2,7 +2,7 @@ import coffees from '../apis/coffees';
 import { ADD_TO_CART } from '../actions/types';
 import _ from 'lodash';
 
-export default async (state = {}, action) => {
+export default (state = {}, action) => {
 	switch (action.type) {
 		case ADD_TO_CART:
 			let coffeeToAdd = _.cloneDeep(action.payload.selectedCoffee);
