@@ -1,72 +1,72 @@
 {
-  "coffees": [
-    {
-      "name": "Philtered Soul",
-      "picture": "https://i.pinimg.com/originals/e8/89/a5/e889a5ff8ae87b3a8735d62b40fb5113.jpg",
-      "price": "3.50",
-      "description": "Sheesh, damn good!",
-      "userId": "10385881714918308312",
-      "id": 13
-    },
-    {
-      "name": "Ice Latte",
-      "picture": "https://www.torani.com/sites/default/files/styles/torani_syrup_recipe_detail/public/recipes/illustration/iced%20latte%20with%20swirl.jpg?itok=c89gvCiJ",
-      "price": "2.50",
-      "description": "Br",
-      "userId": "103858817149183083121",
-      "id": 14,
-      "formVals ": "> {\n      this.props.onSubmit(formVals);\n    }",
-      "dispatchConfig": null,
-      "_targetInst": null,
-      "_dispatchListeners": null,
-      "_dispatchInstances": null,
-      "nativeEvent": null,
-      "type": null,
-      "target": null,
-      "eventPhase": null,
-      "bubbles": null,
-      "cancelable": null,
-      "defaultPrevented": null,
-      "isTrusted": null,
-      "view": null,
-      "detail": null,
-      "screenX": null,
-      "screenY": null,
-      "clientX": null,
-      "clientY": null,
-      "pageX": null,
-      "pageY": null,
-      "ctrlKey": null,
-      "shiftKey": null,
-      "altKey": null,
-      "metaKey": null,
-      "button": null,
-      "buttons": null
-    },
-    {
-      "name": "Matcha Green Tea",
-      "picture": "https://images.japancentre.com/recipes/pics/16/main/matcha-latte.jpg?1469572822",
-      "price": "2.50",
-      "description": "That's the green stuff",
-      "userId": "103858817149183083121",
-      "id": 15,
-      "formVals ": "> {\n      this.props.onSubmit(formVals);\n    }"
-    },
-    {
-      "name": "Frap",
-      "picture": "https://globalassets.starbucks.com/assets/bdc7fcf962884211ab83918d34f73393.jpg?impolicy=1by1_tight_288",
-      "price": "1.50",
-      "description": "Awesomeness",
-      "userId": "103858817149183083121",
-      "id": 16
-    },
-    {
-      "name": "Cappuccino",
-      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cappuccino_at_Sightglass_Coffee.jpg/1280px-Cappuccino_at_Sightglass_Coffee.jpg",
-      "price": "3",
-      "description": "no cap",
-      "userId": "103858817149183083121",
-      "id": 17
-    }
-  ]
+	"coffees": [
+		{
+			"name": "Matcha Green Tea",
+			"picture": "https://images.japancentre.com/recipes/pics/16/main/matcha-latte.jpg?1469572822",
+			"price": 2.5,
+			"description": "That's the green stuff",
+			"userId": "103858817149183083121",
+			"id": 15
+		},
+		{
+			"name": "Frapi",
+			"picture": "https://globalassets.starbucks.com/assets/bdc7fcf962884211ab83918d34f73393.jpg?impolicy=1by1_tight_288",
+			"price": 1.5,
+			"description": "Awesomeness",
+			"userId": "103858817149183083121",
+			"id": 16
+		},
+		{
+			"name": "Cappuccino",
+			"picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cappuccino_at_Sightglass_Coffee.jpg/1280px-Cappuccino_at_Sightglass_Coffee.jpg",
+			"price": 3,
+			"description": "no cap",
+			"userId": "103858817149183083121",
+			"id": 17
+		},
+		{
+			"name": "Tea",
+			"price": 1.5,
+			"description": "pretty good",
+			"picture": "https://www.comunicaffe.com/wp-content/uploads/2019/12/close-up-of-a-cup-of-tea.jpg",
+			"userId": "103858817149183083121",
+			"id": 18
+		},
+		{
+			"name": "Macchiato",
+			"picture": "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Macchiato.jpg",
+			"price": 4,
+			"description": "Hot and delicious",
+			"userId": "103858817149183083121",
+			"id": 19
+		},
+		{
+			"name": "Americano",
+			"picture": "https://images.squarespace-cdn.com/content/v1/5a7cbe247131a5f17b3cc8fc/1519447742018-MOHBW2G0VOQ7QSCPJE14/ke17ZwdGBToddI8pDm48kHsMJ9SuTvzPQGYWvz_s8VxZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVERtp2XdMl9TkoWep3sex-0XtFGJVOG-7fEoyhF7MYNN-4sk1tdgEkQsVzLuuaVaBo/Americano-Coffee-Lounge-Ingredients.jpg",
+			"price": "3.75",
+			"description": "Strong Stuff",
+			"userId": "103858817149183083121",
+			"id": 20
+		},
+		{
+			"name": "Mocha",
+			"picture": "https://i1.wp.com/gatherforbread.com/wp-content/uploads/2014/10/Dark-Chocolate-Mocha-Square.jpg?fit=1000%2C1000&ssl=1",
+			"price": 3.25,
+			"description": "Yessir!",
+			"userId": "103858817149183083121",
+			"id": 21
+		},
+		{
+			"name": "Espresso",
+			"picture": "https://www.dailygrind.com/wp-content/uploads/2018/11/espresso-1.jpg",
+			"price": 6,
+			"description": "Wakey wakey",
+			"userId": "103858817149183083121",
+			"id": 22
+		}
+	],
+	"cart": {
+		"items": [],
+		"total": 20
+	}
 }
